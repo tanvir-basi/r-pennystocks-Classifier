@@ -2,9 +2,9 @@
 Project Website:
 
 ## I. Abstract
-Reddit has become a large source of financial information for many retail investors since the GameStop short squeeze. This activity has been mostly centered on r/WallStreetBets. Retail investors, Unlike professional investors, have very limited time and resources to conduct their own research as they usually have a separate career. In this project we aim to solve 2 problems:
-1. Bring awareness to other financial subreddits
-2. Save time by filter out the memes, bad posts and ads.
+Reddit has become a large source of financial information for many retail investors since the GameStop short squeeze. This activity has been mostly centered on r/WallStreetBets. We believe the subreddit r/pennystocks has been overlooked by retail investors, who unlike professional investors, have very limited time and resources to conduct their own research as they usually have a separate career. Therefore In this project we aim to solve 2 problems:
+1. Bring awareness to other financial subreddits such as r/pennystocks
+2. Save time by filtering out the memes, bad posts and ads.
 
 
 ## II. Introduction
