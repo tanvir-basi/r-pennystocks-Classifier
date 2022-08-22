@@ -16,3 +16,5 @@ Here are some examples:
 - AMD until 2016
 
 This was only one aspect of the problem, as r/WallStreetBets has a massive community that have multiple websites and youtube channels that analyse the subreddit for the best stock picks. This means that many retail investors can rely on these people to filter out the memes, bad posts and ads rather than wasting their own time. Since r/pennystocks has been overlooked unreasonably, it does not have the same community that can provide this time saving service. As a result, this project will aim to filter and classify which posts are worth to take a look at.
+
+## III. Materials and Methods
