@@ -21,4 +21,4 @@ This was only one aspect of the problem, as r/WallStreetBets has a massive commu
 The dataset comes from posts on the subreddit r/pennystocks. They are extracted using the Pushshift API as it provides us with crucial information such as  title, author, text, URL and created time. We used the iexfinance API to obtain financial data based on the stocks peformace from the time the stock was created until now. The API provides the closing price, ticker, financials, cash-flow and volumes of a specific ticker.
 
 ### Data Preprocessing
-After pulling the data from the Pushshift API, we converted the csv to a database in MySQL as it made accessing and modifying data easier. For example, we ran SQL queries to clean the data of empty or removed posts.
+After pulling the data from the Pushshift API, we converted the csv to a database in MySQL as it made accessing and modifying data easier. For example, we ran SQL queries to clean the data of empty, removed or deleted posts.
