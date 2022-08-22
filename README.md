@@ -2,7 +2,7 @@
 Project Website:
 
 ## I. Abstract
-Reddit has become a large source of financial information for many retail investors since the GameStop short squeeze. This activity has been mostly centered on r/WallStreetBets. I hope to focus on other subreddits that have recieved less attention and I believe the subreddit r/pennystocks has been illogically overlooked by investors due to time constraints faced by retail investors and the high risky perception of penny stocks. This project aims to expand investing opportunities and save time for people, such as myself, who are interested in trading and investing in the stock market but have little time to do so.
+Reddit has become a large source of financial information for many retail investors since the GameStop short squeeze. This activity has been mostly centered on r/WallStreetBets. I hope to focus on other subreddits that have recieved less attention and I believe the subreddit r/pennystocks has been illogically overlooked by investors due to time constraints faced by retail investors and the high risk perception of penny stocks. I will use r/pennystocks as my dataset and try to classify posts as either valuable or less valuable in order to help any user quickly filter out posts they may want to read. This project aims to expand investing opportunities and save time for people, such as myself, who are interested in trading and investing in the stock market but have little time to do so.
 
 
 ## II. Introduction
