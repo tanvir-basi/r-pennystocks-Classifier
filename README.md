@@ -19,3 +19,5 @@ This was only one aspect of the problem, as r/WallStreetBets has a massive commu
 
 ## III. Materials and Methods
 The dataset comes from posts on the subreddit r/pennystocks. They are extracted using the Pushshift API as it provides us with crucial information such as  title, author, text, URL and created time. We used the iexfinance API to obtain financial data based on the stocks peformace from the time the stock was created until now. The API provides the closing price, ticker, financials, cash-flow and volumes of a specific ticker.
+
+### Data Preprocessing
