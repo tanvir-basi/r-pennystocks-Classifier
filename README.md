@@ -27,3 +27,4 @@ The threshold for stock growth was set at 1.4%. We arrived at this number by loo
 The text of posts were also prepared for language procesing by disposing of punctuation, digits, links, double spaces and tabs.
 
 ### Algorithims
+We first lemmatized the texts of each post with Spark NLP, an extension package which provides a pre-trained NLP model in order to extract features.
