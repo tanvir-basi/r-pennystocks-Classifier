@@ -24,7 +24,7 @@ The dataset comes from posts on the subreddit r/pennystocks. They are extracted 
 After pulling the data from the Pushshift API, we converted the csv to a database in MySQL as it made accessing and modifying data easier. For example, we ran SQL queries to clean the data of empty, removed or deleted posts. I used regular expression to extract tickers from the post and store them in the database. I used the iexfinance API to validate the ticker I and to get its closing price at the date the post was created and present date. I then calculated the percentage growth of the stock in order to label which posts were good and which posts were bad. 
 The threshold for stock growth was set at 1.4%. We arrived at this number by looking at the SnP 500 growth over the last 3 years which was 8.6%. We looked at it over 3 years as our data was extracted over the past 3 years. Although, much of our data was extracted from within the last year where the growth of the index fund has been -7.21%^. Therefore we split the difference between the 2 numbers which was 1.4%. We used the SnP 500 index fund as it has been seen as a marker for the overall stockmarket but by looking at pennystockies, we want to peform better than the market average.
 
-The text of posts were also prepared for language procesing by disposing of punctuation, digits, links, double spaces and tabs.
+The text of posts were also prepared for language procesing by disposing of punctuation, digits, links, double spaces and tabs. Posts that had less than 50 characters were deleted using SQL queries
 
 ### Algorithims
 We first lemmatized the texts of each post with Spark NLP, an extension package which provides a pre-trained NLP model in order to extract features.
