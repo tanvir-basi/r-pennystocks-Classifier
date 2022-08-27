@@ -54,11 +54,9 @@ I used 50 for 'number of features' hyperparameter instead of the default which i
 With 75% accuracy, our model is not massively accurate but the goal of this project was to indicate which posts are worth reading for users in order to help them save time. The posts were already heavily filtered with many variables as previously mentioned so the final posts definitely have a good chance to be worth a read.
 
 ### Potential Issues
-#### Bias
-The ticker extraction code was very accurate but it did occasionally identify the wrong stock. This can cause bias as the growth percentage label we used afterwards was not relevant for the post it was linked to.
+#### Bias - The ticker extraction code was very accurate but it did occasionally identify the wrong stock. This can cause bias as the growth percentage label we used afterwards was not relevant for the post it was linked to.
 
-#### Lack of Data
-From 46,000 posts we extracted using the Pushshift API we trimmed the posts down to nearly 15,000 datapoints. These reduced posts were therefore of good quality however it is still a very small quantity. By acquiring even more data, we could better train our model.
+#### Lack of Data - From 46,000 posts we extracted using the Pushshift API we trimmed the posts down to nearly 15,000 datapoints. These reduced posts were therefore of good quality however it is still a very small quantity. By acquiring even more data, we could better train our model.
 
 ### Closing Thoughts
 To conclude, this project was extremely interesting as it proved to be my first proper foray into the data science workflow and using Machine Learning. From establishing a useful problem statement, extracting data, training models and reflecting on our results. It was a great learning experience that proved to deliver something useful that can be expanded on further by creating a website with the posts and the predictions listed.
