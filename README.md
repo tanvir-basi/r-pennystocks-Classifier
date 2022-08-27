@@ -33,8 +33,17 @@ I lemmatized the texts of all of the post with Spark NLP, an extension package w
 I used Naive Bayes algorithim from PySpark's machine learning library.  Naive Bayes is a supervised learning classification model based on applying Bayes' theorem. The results from HashingTF and CountVectorizer are features. the modal type and smoothing value were the two hyperparameters I tested with. As well, I used complement and multinomial, the two most appropriate Naive Bayes model types. Each model type changes the algorithm with a different method to compute the model’s coefficients, where Complement Naive Bayes is more suited for imbalanced datasets than Multinomial Naive Bayes. All these factors were randomized in many iterations to obtain the best combination.
 
 ## IV. Results
+The label we used to train our Naive Bayes classifier is the growth percentage of the stock linked with a given reddit post, with the instances being the text of each post.
+
+The best model achieved an accuracy of 75.23%. This was created by using: CountVectorizer to vectorize our features, using Multinomial Naive Bayes and a smoothing parameter of 0.2684835. This model had an F1 score of 0.30, precision of 0.20 and recall of 0.49.
+
+In the following tables you can observe the models we recieved from using complement and multinomial.
+
+[insert pics]
+
+I used 50 for 'number of features' hyperparameter insted of the default which is 20, for HashingTF. This essentially causes dimensionality reduction on each of our instances, which may be why the overall accuracy mean is lower than CountVectorizer as less features are considered during training, leading to loss of information.
+
+
+
+
 We also had to add the urls from one of the previous tabless to the table with the predictions.
-
-
-
-
