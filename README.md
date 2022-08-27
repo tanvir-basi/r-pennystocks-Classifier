@@ -28,3 +28,5 @@ The text of posts were also prepared for language procesing by disposing of punc
 
 ### Algorithims
 We first lemmatized the texts of each post with Spark NLP, an extension package which provides a pre-trained NLP model in order to extract features.
+
+We also had to add the urls from one of the previous tabless to the table with the predictions
