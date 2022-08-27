@@ -23,6 +23,14 @@ The dataset comes from posts on the subreddit r/pennystocks. They are extracted 
 After pulling the data from the Pushshift API, we converted the csv to a database in MySQL as it made accessing and modifying data easier. For example, we ran SQL queries to clean the data of empty, removed or deleted posts. I used regular expression to extract tickers from the post and store them in the database. I used the iexfinance API to validate the ticker I and to get its closing price at the date the post was created and present date. I then calculated the percentage growth of the stock in order to label which posts were good and which posts were bad. The threshold for stock growth was set at 1.4%. We arrived at this number by looking at the SnP 500 growth over the last 3 years which was 8.6%. We looked at it over 3 years as our data was extracted over the past 3 years. Although, much of our data was extracted from within the last year where the growth of the index fund has been -7.21%. Therefore, we split the difference between the 2 numbers which was 1.4%. We used the SnP 500 index fund as it has been seen as a marker for the overall stock market but by looking at penny stocks, we want to perform better than the market average.
 The text of posts was also prepared for language processing by disposing of punctuation, digits, links, double spaces and tabs. Posts that had less than 50 characters were deleted using SQL queries
 
+SQL database when we pulled in the data initially and joined it all in the pennystocks table
+![image](https://user-images.githubusercontent.com/95594161/187049963-8481f13d-34cf-4028-9686-b6cc98fc2b1e.png)
+
+![image](https://user-images.githubusercontent.com/95594161/187049983-a7aa9049-d0d5-4b84-b8b7-48e8c82c569b.png)
+
+![image](https://user-images.githubusercontent.com/95594161/187049991-d6a264d0-913b-4072-880c-2c5c88e95dc5.png)
+
+
 ### Algorithms
 I lemmatized the texts of all of the post with Spark NLP, an extension package which provided a pre-trained NLP model so I could obtain features. Subsequently, from PySpark, I used HashingTF and CountVectorizer to change the data from text into vectors. HashingTF produced the document-term matrix but with reduced number of features (performs dimensionality reduction) than when I used CountVectorizer.
 
@@ -35,6 +43,12 @@ The best model achieved an accuracy of 75.23%. This was created by using: CountV
 In the following tables you can observe the models we received from using complement and multinomial.
 [insert pics]
 I used 50 for 'number of features' hyperparameter instead of the default which is 20, for HashingTF. This essentially causes dimensionality reduction on each of our instances, which may be why the overall accuracy mean is lower than CountVectorizer as less features are considered during training, leading to loss of information.
+
+![image](https://user-images.githubusercontent.com/95594161/187050005-dca49c1d-26df-4b45-a953-166bdb4cc6be.png)
+
+
+![image](https://user-images.githubusercontent.com/95594161/187050009-9d036d55-da91-4a7f-927a-39d8a5bc3e6d.png)
+![image](https://user-images.githubusercontent.com/95594161/187050011-8714d5bf-fe3b-481b-acae-d027c2b75788.png)
 
 ## IV. Conclusion
 With 75% accuracy, our model is not massively accurate but the goal of this project was to indicate which posts are worth reading for users in order to help them save time. The posts were already heavily filtered with many variables as previously mentioned so the final posts definitely have a good chance to be worth a read.
