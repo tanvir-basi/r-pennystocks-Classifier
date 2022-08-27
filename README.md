@@ -43,7 +43,15 @@ In the following tables you can observe the models we recieved from using comple
 
 I used 50 for 'number of features' hyperparameter insted of the default which is 20, for HashingTF. This essentially causes dimensionality reduction on each of our instances, which may be why the overall accuracy mean is lower than CountVectorizer as less features are considered during training, leading to loss of information.
 
+## IV. Conclusion
+With 75% accuracy, our model is not massively accurate but the goal of this project was to indicate which posts are worth reading for users in order to help them save time. The posts were already heavily filtered with many variables as previously mentioned so the final posts definitly have a good chance to be worth a read.
 
+### Potential Issues
+#### Bias
+The ticker extraction code was very accurate but it did occasionaly identify the wrong stock. This can cause bias as the growth percentage label we used afterwards was not relevant for the post it was linked to.
 
+#### Lack of Data
+From 46,000 posts we extracted using the Pushshift API we trimmed the posts down to nearly 15,000 datapoints. These reduced posts were therefore of good quality however it is still a very small quantity. By aquiring even more data we could better train our model.
 
-We also had to add the urls from one of the previous tabless to the table with the predictions.
+### Closing Thoughts
+To conclude, this project was extremely interesting as it proved to be my first proper foray into the datascience workflow and using Machine Learning. From establishing a useful problem statement, extracting data, training models and reflecting on our results. It was a great learning experience that proved to deliver something useful that can be expaned on further by creating a website with the posts and the predicitions listed.
