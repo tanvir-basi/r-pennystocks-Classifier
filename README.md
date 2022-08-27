@@ -27,6 +27,14 @@ The threshold for stock growth was set at 1.4%. We arrived at this number by loo
 The text of posts were also prepared for language procesing by disposing of punctuation, digits, links, double spaces and tabs. Posts that had less than 50 characters were deleted using SQL queries
 
 ### Algorithims
-We first lemmatized the texts of each post with Spark NLP, an extension package which provides a pre-trained NLP model in order to extract features.
+I lemmatized the texts of all of the post with Spark NLP, an extension package which provided a pre-trained NLP model so I could obtain features. Subsequently, from PySpark, I used HashingTF and CountVectorizer to change the data from text into vectors. HashingTF produced the document-term matrix but with reduced amount of features (performs dimensionality reduction) than when I used CountVectorizer.
 
-We also had to add the urls from one of the previous tabless to the table with the predictions
+#### Naive Bayes
+I used Naive Bayes algorithim from PySpark's machine learning library.  Naive Bayes is a supervised learning classification model based on applying Bayes' theorem. The results from HashingTF and CountVectorizer are features. the modal type and smoothing value were the two hyperparameters I tested with. As well, I used complement and multinomial, the two most appropriate Naive Bayes model types. Each model type changes the algorithm with a different method to compute the model’s coefficients, where Complement Naive Bayes is more suited for imbalanced datasets than Multinomial Naive Bayes. All these factors were randomized in many iterations to obtain the best combination.
+
+## IV. Results
+We also had to add the urls from one of the previous tabless to the table with the predictions.
+
+
+
+
