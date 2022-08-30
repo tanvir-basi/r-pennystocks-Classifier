@@ -50,7 +50,7 @@ I used 50 for 'number of features' hyperparameter instead of the default which i
 ![image](https://user-images.githubusercontent.com/95594161/187050009-9d036d55-da91-4a7f-927a-39d8a5bc3e6d.png)
 ![image](https://user-images.githubusercontent.com/95594161/187050011-8714d5bf-fe3b-481b-acae-d027c2b75788.png)
 
-## IV. Conclusion
+## V. Conclusion
 With 75% accuracy, our model is not massively accurate but the goal of this project was to indicate which posts are worth reading for users in order to help them save time. The posts were already heavily filtered with many variables as previously mentioned so the final posts definitely have a good chance to be worth a read.
 
 ### Potential Issues
