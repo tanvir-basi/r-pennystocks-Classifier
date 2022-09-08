@@ -17,13 +17,13 @@ Here are some examples:
 This was only one aspect of the problem, as r/WallStreetBets has a massive community that have multiple websites and YouTube channels that analyse the subreddit for the best stock picks. This means that many retail investors can rely on these people to filter out the memes, bad posts and ads rather than wasting their own time. Since r/pennystocks has been overlooked unreasonably, it does not have the same community that can provide this time saving service. As a result, this project will aim to filter and classify which posts are worth to take a look at.
 
 ## III. Materials and Methods
-The dataset comes from posts on the subreddit r/pennystocks. They are extracted using the Pushshift API as it provides us with crucial information such as title, author, text, URL and created time. We used the iexfinance API to obtain financial data based on the stock’s performance from the time the stock was created until now. The API provides the closing price, ticker, financials, cash-flow and volumes of a specific ticker.
+The dataset comes from posts on the subreddit r/pennystocks. They are extracted using the Pushshift API as it provides us with crucial information such as title, author, text, URL and created time. I used the iexfinance API to obtain financial data based on the stock’s performance from the time the stock was created until now. The API provides the closing price, ticker, financials, cash-flow and volumes of a specific ticker.
 
 ### Data Preprocessing
-After pulling the data from the Pushshift API, we converted the csv to a database in MySQL as it made accessing and modifying data easier. For example, we ran SQL queries to clean the data of empty, removed or deleted posts. I used regular expression to extract tickers from the post and store them in the database. I used the iexfinance API to validate the ticker I and to get its closing price at the date the post was created and present date. I then calculated the percentage growth of the stock in order to label which posts were good and which posts were bad. The threshold for stock growth was set at 1.4%. We arrived at this number by looking at the SnP 500 growth over the last 3 years which was 8.6%. We looked at it over 3 years as our data was extracted over the past 3 years. Although, much of our data was extracted from within the last year where the growth of the index fund has been -7.21%. Therefore, we split the difference between the 2 numbers which was 1.4%. We used the SnP 500 index fund as it has been seen as a marker for the overall stock market but by looking at penny stocks, we want to perform better than the market average.
+After pulling the data from the Pushshift API, I converted the csv to a database in MySQL as it made accessing and modifying data easier. For example, I ran SQL queries to clean the data of empty, removed or deleted posts. I used regular expression to extract tickers from the post and store them in the database. I used the iexfinance API to validate the ticker I and to get its closing price at the date the post was created and present date. I then calculated the percentage growth of the stock in order to label which posts were good and which posts were bad. The threshold for stock growth was set at 1.4%. I arrived at this number by looking at the SnP 500 growth over the last 3 years which was 8.6%. I looked at it over 3 years as our data was extracted over the past 3 years. Although, much of our data was extracted from within the last year where the growth of the index fund has been -7.21%. Therefore, I split the difference between the 2 numbers which was 1.4%. I used the SnP 500 index fund as it has been seen as a marker for the overall stock market but by looking at penny stocks, I want to perform better than the market average.
 The text of posts was also prepared for language processing by disposing of punctuation, digits, links, double spaces and tabs. Posts that had less than 50 characters were deleted using SQL queries
 
-SQL database when we pulled in the data initially and joined it all in the pennystocks table
+SQL database when I pulled in the data initially and joined it all in the pennystocks table
 ![image](https://user-images.githubusercontent.com/95594161/187049963-8481f13d-34cf-4028-9686-b6cc98fc2b1e.png)
 
 ![image](https://user-images.githubusercontent.com/95594161/187049983-a7aa9049-d0d5-4b84-b8b7-48e8c82c569b.png)
@@ -38,9 +38,9 @@ I lemmatized the texts of all of the post with Spark NLP, an extension package w
 I used Naive Bayes algorithm from PySpark's machine learning library. Naive Bayes is a supervised learning classification model based on applying Bayes' theorem. The results from HashingTF and CountVectorizer are features. the modal type and smoothing value were the two hyperparameters I tested with. As well, I used complement and multinomial, the two most appropriate Naive Bayes model types. Each model type changes the algorithm with a different method to compute the model’s coefficients, where Complement Naive Bayes is more suited for imbalanced datasets than Multinomial Naive Bayes. All these factors were randomized in many iterations to obtain the best combination.
 
 ## IV. Results
-The label we used to train our Naive Bayes classifier is the growth percentage of the stock linked with a given reddit post, with the instances being the text of each post.
+The label I used to train our Naive Bayes classifier is the growth percentage of the stock linked with a given reddit post, with the instances being the text of each post.
 The best model achieved an accuracy of 75.23%. This was created by using: CountVectorizer to vectorize our features, using Multinomial Naive Bayes and a smoothing parameter of 0.2684835. This model had an F1 score of 0.30, precision of 0.20 and recall of 0.49.
-In the following tables you can observe the models we received from using complement and multinomial.
+In the following tables you can observe the models I received from using complement and multinomial.
 [insert pics]
 I used 50 for 'number of features' hyperparameter instead of the default which is 20, for HashingTF. This essentially causes dimensionality reduction on each of our instances, which may be why the overall accuracy mean is lower than CountVectorizer as less features are considered during training, leading to loss of information.
 
@@ -55,10 +55,10 @@ With 75% accuracy, our model is not massively accurate but the goal of this proj
 
 ### Potential Issues
 #### Bias 
-- The ticker extraction code was very accurate but it did occasionally identify the wrong stock. This can cause bias as the growth percentage label we used afterwards was not relevant for the post it was linked to.
+- The ticker extraction code was very accurate but it did occasionally identify the wrong stock. This can cause bias as the growth percentage label I used afterwards was not relevant for the post it was linked to.
 
 #### Lack of Data
-- From 46,000 posts we extracted using the Pushshift API we trimmed the posts down to nearly 15,000 datapoints. These reduced posts were therefore of good quality however it is still a very small quantity. By acquiring even more data, we could better train our model.
+- From 46,000 posts I extracted using the Pushshift API I trimmed the posts down to nearly 15,000 datapoints. These reduced posts were therefore of good quality however it is still a very small quantity. By acquiring even more data, I could better train our model.
 
 ### Closing Thoughts
 To conclude, this project was extremely interesting as it proved to be my first proper foray into the data science workflow and using Machine Learning. From establishing a useful problem statement, extracting data, training models and reflecting on our results. It was a great learning experience that proved to deliver something useful that can be expanded on further by creating a website with the posts and the predictions listed.
