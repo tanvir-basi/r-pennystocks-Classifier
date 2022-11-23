@@ -41,7 +41,7 @@ I used Naive Bayes algorithm from PySpark's machine learning library. Naive Baye
 The label I used to train our Naive Bayes classifier is the growth percentage of the stock linked with a given reddit post, with the instances being the text of each post.
 The best model achieved an accuracy of 75.23%. This was created by using: CountVectorizer to vectorize our features, using Multinomial Naive Bayes and a smoothing parameter of 0.2684835. This model had an F1 score of 0.30, precision of 0.20 and recall of 0.49.
 In the following tables you can observe the models I received from using complement and multinomial.
-[insert pics]
+
 I used 50 for 'number of features' hyperparameter instead of the default which is 20, for HashingTF. This essentially causes dimensionality reduction on each of our instances, which may be why the overall accuracy mean is lower than CountVectorizer as less features are considered during training, leading to loss of information.
 
 ![image](https://user-images.githubusercontent.com/95594161/187050005-dca49c1d-26df-4b45-a953-166bdb4cc6be.png)
